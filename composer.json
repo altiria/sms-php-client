@@ -1,0 +1,27 @@
+{
+    "name": "altiria/sms-php-client",
+    "type": "library",
+    "description": "AltiriaSmsPhpClient is a PHP HTTP client library",
+    "license": "MIT",
+    "require": {
+	"php": "^7.0.0",
+	"guzzlehttp/guzzle": "6.5.5",
+	"ext-json": "*",
+    	"guzzlehttp/promises": "^1.0",
+	"guzzlehttp/psr7": "^1.6.1",
+	"symfony/polyfill-intl-idn": "^1.17.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AltiriaSmsPhpClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AltiriaSmsPhpClient\\Tests\\": "test/"
+        }
+    }
+}
