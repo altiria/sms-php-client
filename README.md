@@ -28,7 +28,7 @@ Esta librería hace uso de **composer** y cumple con las especificaciones **PSR-
 
 La forma recomendada de instalar el cliente Altiria para PHP es a través de Composer .
 
-###A través de línea de comandos
+### A través de línea de comandos
 
 <pre>
 composer require altiria/sms-php-client
