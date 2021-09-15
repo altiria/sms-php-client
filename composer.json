@@ -23,5 +23,24 @@
     },
     "require-dev": {
         "phpunit/phpunit": "*"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "dev-master"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "AltiriaSmsPhpClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AltiriaSmsPhpClient\\Tests\\": "test/"
+        }
     }
 }
