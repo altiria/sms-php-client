@@ -43,6 +43,5 @@
         "psr-4": {
 	    "AltiriaSmsPhpClient\\Tests\\": "test/"	
         }
-    },  
-    "minimum-stability": "dev"
+    }
 }
