@@ -30,7 +30,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "dev-master"
+            "dev-master": "master"
         }
     },
     "autoload": {
