@@ -1,11 +1,11 @@
-## ¡Atención! Este proyecto aún se encuentra en desarrollo y por tanto no es una versión final.
+### ¡Atención! Este proyecto aún se encuentra en desarrollo y por tanto no es una versión final.
 
 ![](http://static.altiria.com/wp-content/themes/altiria/images/logo-altiria.png)
 
 
 # Altiria, cliente SMS PHP
 
- ![](https://img.shields.io/github/release/pandao/editor.md.svg)
+ ![](https://img.shields.io/badge/version-0.9.0-blue.svg)
 
 Altiria SMS PHP es un cliente que simplifica al máximo la integración de nuestro API para PHP. Por el momento, esta librería abarca las funciones más básicas:
 - **Envíos de SMS individuales** con las siguientes características:
@@ -19,22 +19,22 @@ Altiria SMS PHP es un cliente que simplifica al máximo la integración de nuest
 
 Esta librería hace uso de **composer** y cumple con las especificaciones **PSR-4**.
 
-##Requisitos
+## Requisitos
 
 - php: ^7.0.0
 - [composer](https://getcomposer.org/)
 
-##Instalación
+## Instalación
 
 La forma recomendada de instalar el cliente Altiria para PHP es a través de Composer .
 
-###A través de línea de comandos
+### A través de línea de comandos
 
 <pre>
 composer require altiria/sms-php-client
 </pre>
 
-###Editando el fichero composer.json y actualizando el proyecto
+### Editando el fichero composer.json y actualizando el proyecto
 
 En este caso, añadir el siguiente fragmento al fichero composer.json.
 
@@ -50,13 +50,13 @@ A continuación, actualizar el proyecto ejecutando la siguiente instrucción por
 composer install
 </pre>
 
-##Ejemplos de uso
+## Ejemplos de uso
 
-###Envío de SMS
+### Envío de SMS
 
 A continuación se describen cada una de las posibilidades de uso de la librería para realizar envíos de SMS.
 
-####Ejemplo básico
+#### Ejemplo básico
 
 Se trata de la opción más sencilla para realizar un envío de SMS.
 
@@ -80,7 +80,7 @@ try {
 }
 ```
 
-####Ejemplo básico con timeout personalizado
+#### Ejemplo básico con timeout personalizado
 
 Permite fijar el tiempo de respuesta en milisegundos. Si se supera se lanzará una **ConnectionException**.
 Por defecto el tiempo de respuesta es de 10 segundos, pero puede ser ajustado entre 1 y 30 segundos.
@@ -105,7 +105,7 @@ try {
 }
 ```
 
-####Ejemplo básico con remitente
+#### Ejemplo básico con remitente
 
 Se trata de la opción más sencilla para realizar un envío de SMS añadiendo remitente.
 
@@ -128,7 +128,7 @@ try {
     }
 }
 ```
-####Ejemplo con todos los parámetros
+#### Ejemplo con todos los parámetros
 
 Se muestra un ejemplo utilizando todo los parámetros mediante setters.
 
@@ -160,11 +160,11 @@ try {
     }
 }
 ```
-###Consulta de crédito
+### Consulta de crédito
 
 A continuación se describen cada una de las posibilidades de uso de la librería para consultar el crédito.
 
-####Ejemplo básico
+#### Ejemplo básico
 
 Este ejemplo no incluye los parámetros opcionales.
 
@@ -187,7 +187,7 @@ try {
 }
 ```
 
-####Ejemplo con todos los parámetros
+#### Ejemplo con todos los parámetros
 
 Este ejemplo incluye los parámetros opcionales.
 
@@ -212,11 +212,11 @@ try {
 }
 ```
 
-##Licencia
+## Licencia
 
 La licencia de esta librería es de tipo MIT. Para más información consultar el fichero de licencia.
 
-##Ayuda
+## Ayuda
 
 Utilizamos la sección de problemas de GitHub para tratar errores y valorar nuevas funciones.
 Para cualquier problema durante la intergración contactar a través del email soporte@altiria.com.
