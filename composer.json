@@ -23,15 +23,5 @@
     },
     "require-dev": {
         "phpunit/phpunit": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "AltiriaSmsPhpClient\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "AltiriaSmsPhpClient\\Tests\\": "test/"
-        }
     }
 }
