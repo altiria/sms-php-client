@@ -1,11 +1,9 @@
-### ¡Atención! Este proyecto aún se encuentra en desarrollo y por tanto no es una versión final.
-
 ![](http://static.altiria.com/wp-content/themes/altiria/images/logo-altiria.png)
 
 
 # Altiria, cliente SMS PHP
 
- ![](https://img.shields.io/badge/version-0.9.0-blue.svg)
+ ![](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
 Altiria SMS PHP es un cliente que simplifica al máximo la integración de nuestro API para PHP. Por el momento, esta librería abarca las funciones más básicas:
 - **Envíos de SMS individuales** con las siguientes características:
