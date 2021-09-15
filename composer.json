@@ -1,6 +1,7 @@
 {
     "name": "altiria/sms-php-client",
     "description": "AltiriaSmsPhpClient is a PHP HTTP client library",
+    "type": "library",	
     "keywords": [
         "library",
         "http",
@@ -32,5 +33,16 @@
         "branch-alias": {
             "dev-master": "0.9-dev"
         }
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "Altiria\\SmsPhpClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+	    "Altiria\\SmsPhpClient\\Tests\\": "test/"		
+        }
+    },  
+    "minimum-stability": "dev"
 }
