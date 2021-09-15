@@ -30,17 +30,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.9.0-dev"
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "AltiriaSmsPhpClient\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "AltiriaSmsPhpClient\\Tests\\": "test/"
+            "dev-master": "0.9-dev"
         }
     }
 }
