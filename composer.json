@@ -4,12 +4,9 @@
     "description": "AltiriaSmsPhpClient is a PHP HTTP client library",
     "license": "MIT",
     "require": {
-	"php": "^7.0.0",
-	"guzzlehttp/guzzle": "6.5.5",
-	"ext-json": "*",
-    	"guzzlehttp/promises": "^1.0",
-	"guzzlehttp/psr7": "^1.6.1",
-	"symfony/polyfill-intl-idn": "^1.17.0"
+	    "php": "^7.0.0",
+	    "guzzlehttp/guzzle": "6.5.5",
+	    "ext-json": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
