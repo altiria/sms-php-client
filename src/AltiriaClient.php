@@ -33,8 +33,7 @@ class AltiriaClient
     protected $minTimeout=1000;
 
     // API URL
-    protected $urlBase='http://127.0.0.1:8080/apirest/ws';
-    //protected $urlBase='https://www.altiria.net:8443/apirest/ws';
+    protected $urlBase='https://www.altiria.net:8443/apirest/ws';
 
     // Library name/version
     protected $source='lib-php-composer-1_0';
