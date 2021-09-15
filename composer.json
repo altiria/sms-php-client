@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Altiria\\SmsPhpClient\\": "src/"
+            "SmsPhpClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-	    "Altiria\\SmsPhpClient\\Tests\\": "test/"		
+	    "SmsPhpClient\\Tests\\": "test/"		
         }
     },  
     "minimum-stability": "dev"
