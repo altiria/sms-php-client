@@ -19,7 +19,8 @@ class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
     //set to null if there is no sender
     public $sender = 'mySender';
     public $debug = false;
-    public $destination = '346XXXXXXXX';
+    //public $destination = '346XXXXXXXX';
+    public $destination = '123456789';
 
     /**
      * Only mandatory parameters are sent.
