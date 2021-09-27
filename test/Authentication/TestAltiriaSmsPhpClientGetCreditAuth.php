@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TestAltiriaSmsPhpClientGetCreditAuth extends TestCase
 {
-    public $login = 'user@altiria.com';
+    public $login = 'user@mydomain.com';
     public $password = 'mypassword';
     public $debug = false;
 

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class TestAltiriaSmsPhpClientSendSmsAuth extends TestCase
 {
-    public $login = 'user@altiria.com';
+    public $login = 'user@mydomain.com';
     public $password = 'mypassword';
     public $debug = false;
     public $destination = '346XXXXXXXX';

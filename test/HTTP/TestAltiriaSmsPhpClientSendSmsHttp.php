@@ -14,13 +14,12 @@ use PHPUnit\Framework\TestCase;
 class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
 {
     //configurable parameters
-    public $login = 'user@altiria.com';
+    public $login = 'user@mydomain.com';
     public $password = 'mypassword';
     //set to null if there is no sender
     public $sender = 'mySender';
     public $debug = false;
-    //public $destination = '346XXXXXXXX';
-    public $destination = '123456789';
+    public $destination = '346XXXXXXXX';
 
     /**
      * Only mandatory parameters are sent.
@@ -103,7 +102,6 @@ class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
     public function testErrorInvalidCredentials()
     {
         try {
-            $password = 'mypassword';
             $message = 'Lorem Ipsum is simply dummy text';
 
             $client = new AltiriaClient('unknown', $this->password);
