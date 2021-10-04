@@ -60,7 +60,7 @@ Se trata de la opción más sencilla para realizar un envío de SMS.
 
 ```php
 try {
-    $client = new AltiriaClient('miusuario@email.com', 'contraseña');
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba');
     $client-> sendSms($textMessage);
     echo '¡Mensaje enviado!';
@@ -85,7 +85,7 @@ Por defecto el tiempo de respuesta es de 10 segundos, pero puede ser ajustado en
 
 ```php
 try {
-    $client = new AltiriaClient('miusuario@email.com', 'contraseña', 5000);
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword', 5000);
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba');
     $client-> sendSms($textMessage);
     echo '¡Mensaje enviado!';
@@ -109,7 +109,7 @@ Se trata de la opción más sencilla para realizar un envío de SMS añadiendo r
 
 ```php
 try {
-    $client = new AltiriaClient('miusuario@email.com', 'contraseña');
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba', 'miRemitente');
     $client-> sendSms($textMessage);
     echo '¡Mensaje enviado!';
@@ -132,7 +132,7 @@ Se muestra un ejemplo utilizando todo los parámetros mediante setters.
 
 ```php
 try {
-    $client = new AltiriaClient('miusuario@email.com', 'contraseña');
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $client->setConnectTimeout(1000);
     $client->setTimeout(5000);
     $client->setDebug(true);
@@ -168,7 +168,7 @@ Este ejemplo no incluye los parámetros opcionales.
 
 ```php
 try {
-    $client = new AltiriaClient('miusuario@email.com', 'contraseña');
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $credit = $client-> getCredit();
     echo 'Crédito disponible: '.$credit;
 } catch (\AltiriaSmsPhpClient\Exception\AltiriaGwException $exception) {
@@ -191,7 +191,7 @@ Este ejemplo incluye los parámetros opcionales.
 
 ```php
 try {
-    $client = new AltiriaClient('miusuario@email.com', 'contraseña', 5000);
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword', 5000);
     $client->setDebug(true);
     $client->setConnectTimeout(1000);
     // $client->setTimeout(5000); Se puede asignar aquí o en el constructor
