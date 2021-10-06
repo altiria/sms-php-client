@@ -1,21 +1,25 @@
 ![](http://static.altiria.com/wp-content/themes/altiria/images/logo-altiria.png)
 
 
-# Altiria, cliente SMS PHP
+# Altiria, cliente envío de SMS con PHP
 
  ![](https://img.shields.io/badge/version-1.0.0-blue.svg)
 
-Altiria SMS PHP es un cliente que simplifica al máximo la integración de nuestro API para PHP. Por el momento, esta librería abarca las funciones más básicas:
-- **Envíos de SMS individuales** con las siguientes características:
+Altiria SMS PHP es el cliente de envío de SMS que simplifica al máximo la integración del API SMS para PHP de Altiria.
+- **Envíos de SMS individuales**
   - sencillos
   - concatenados
-  - certificación de entrega con o sin identificador
-  - certificado digital de entrega
-  - uso de remitente
-  - seleccionar codificación
+  - confirmación de entrega
+  - remitente personalizado
 - **Consultas de crédito**
 
 Esta librería hace uso de **composer** y cumple con las especificaciones **PSR-4**.
+
+## Uso
+
+Es necesario tener una cuenta de envío con Altiria. Si todavía no tienes una, puedes [registrarte para crear una cuenta de prueba](https://www.altiria.com/free-trial/)
+
+[Documentación de la API](https://www.altiria.com/api-envio-sms/)
 
 ## Requisitos
 
@@ -24,7 +28,7 @@ Esta librería hace uso de **composer** y cumple con las especificaciones **PSR-
 
 ## Instalación
 
-La forma recomendada de instalar el cliente Altiria para PHP es a través de Composer .
+La forma recomendada de instalar el cliente Altiria para PHP es a través de Composer. Puedes hacerlo de dos maneras:
 
 ### A través de línea de comandos
 
@@ -59,22 +63,18 @@ A continuación se describen cada una de las posibilidades de uso de la librerí
 Se trata de la opción más sencilla para realizar un envío de SMS.
 
 ```php
+use \AltiriaSmsPhpClient\AltiriaClient;
+use \AltiriaSmsPhpClient\AltiriaModelTextMessage;
+use \AltiriaSmsPhpClient\Exception\GeneralAltiriaException;
+
 try {
+    //Personaliza las credenciales de acceso
     $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba');
     $client-> sendSms($textMessage);
     echo '¡Mensaje enviado!';
-} catch (\AltiriaSmsPhpClient\Exception\AltiriaGwException $exception) {
+} catch (GeneralAltiriaException $exception) {
     echo 'Mensaje no aceptado:'.$exception->getMessage();
-    echo 'Código de error: '.$exception->getStatus();
-} catch (\AltiriaSmsPhpClient\Exception\JsonException $exception) {
-    echo 'Error en la petición:'.$exception->getMessage();
-} catch (\AltiriaSmsPhpClient\Exception\ConnectionException $exception) {
-    if ($exception->getMessage().strpos('RESPONSE_TIMEOUT', 0) != -1) {
-        echo 'Tiempo de respuesta agotado: '.$exception->getMessage();
-    } else {
-        echo 'Tiempo de conexión agotado: '.$exception->getMessage();
-    }
 }
 ```
 
@@ -84,7 +84,11 @@ Permite fijar el tiempo de respuesta en milisegundos. Si se supera se lanzará u
 Por defecto el tiempo de respuesta es de 10 segundos, pero puede ser ajustado entre 1 y 30 segundos.
 
 ```php
+use \AltiriaSmsPhpClient\AltiriaClient;
+use \AltiriaSmsPhpClient\AltiriaModelTextMessage;
+
 try {
+    //Personaliza las credenciales de acceso
     $client = new AltiriaClient('user@mydomain.com', 'mypassword', 5000);
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba');
     $client-> sendSms($textMessage);
@@ -108,7 +112,11 @@ try {
 Se trata de la opción más sencilla para realizar un envío de SMS añadiendo remitente.
 
 ```php
+use \AltiriaSmsPhpClient\AltiriaClient;
+use \AltiriaSmsPhpClient\AltiriaModelTextMessage;
+
 try {
+    //Personaliza las credenciales de acceso
     $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba', 'miRemitente');
     $client-> sendSms($textMessage);
@@ -131,7 +139,11 @@ try {
 Se muestra un ejemplo utilizando todo los parámetros mediante setters.
 
 ```php
+use \AltiriaSmsPhpClient\AltiriaClient;
+use \AltiriaSmsPhpClient\AltiriaModelTextMessage;
+
 try {
+    //Personaliza las credenciales de acceso
     $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $client->setConnectTimeout(1000);
     $client->setTimeout(5000);
@@ -167,34 +179,12 @@ A continuación se describen cada una de las posibilidades de uso de la librerí
 Este ejemplo no incluye los parámetros opcionales.
 
 ```php
+use \AltiriaSmsPhpClient\AltiriaClient;
+
 try {
+    //Personaliza las credenciales de acceso
     $client = new AltiriaClient('user@mydomain.com', 'mypassword');
     $credit = $client-> getCredit();
-    echo 'Crédito disponible: '.$credit;
-} catch (\AltiriaSmsPhpClient\Exception\AltiriaGwException $exception) {
-    echo 'Solicitud no aceptada:'.$exception->getMessage();
-    echo 'Código de error: '.$exception->getStatus();
-} catch (\AltiriaSmsPhpClient\Exception\JsonException $exception) {
-    echo 'Error en la petición:'.$exception->getMessage();
-} catch (\AltiriaSmsPhpClient\Exception\ConnectionException $exception) {
-    if ($exception->getMessage().strpos('RESPONSE_TIMEOUT', 0) != -1) {
-        echo 'Tiempo de respuesta agotado: '.$exception->getMessage();
-    } else {
-        echo 'Tiempo de conexión agotado: '.$exception->getMessage();
-    }
-}
-```
-
-#### Ejemplo con todos los parámetros
-
-Este ejemplo incluye los parámetros opcionales.
-
-```php
-try {
-    $client = new AltiriaClient('user@mydomain.com', 'mypassword', 5000);
-    $client->setDebug(true);
-    $client->setConnectTimeout(1000);
-    // $client->setTimeout(5000); Se puede asignar aquí o en el constructor
     echo 'Crédito disponible: '.$credit;
 } catch (\AltiriaSmsPhpClient\Exception\AltiriaGwException $exception) {
     echo 'Solicitud no aceptada:'.$exception->getMessage();
