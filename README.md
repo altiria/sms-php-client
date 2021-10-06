@@ -17,7 +17,9 @@ Esta librería hace uso de **composer** y cumple con las especificaciones **PSR-
 
 ## Uso
 
-Es necesario tener una cuenta de envío con Altiria. Si todavía no tienes una, puedes [registrarte para crear una cuenta de prueba](https://www.altiria.com/free-trial/)
+Es necesario tener una cuenta de envío con Altiria. Si todavía no tienes una,
+
+[Regístrate para crear una cuenta de prueba](https://www.altiria.com/free-trial/)
 
 [Documentación de la API](https://www.altiria.com/api-envio-sms/)
 
