@@ -174,11 +174,9 @@ try {
 ```
 ### Consulta de crédito
 
-A continuación se describen cada una de las posibilidades de uso de la librería para consultar el crédito.
+Ejemplos de consulta del crédito de SMS en la cuenta de Altiria.
 
 #### Ejemplo básico
-
-Este ejemplo no incluye los parámetros opcionales.
 
 ```php
 use \AltiriaSmsPhpClient\AltiriaClient;
