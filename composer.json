@@ -1,6 +1,6 @@
 {
     "name": "altiria/sms-php-client",
-    "description": "AltiriaSmsPhpClient is a PHP HTTP client library",
+    "description": "Cliente PHP para el envío de SMS con Altiria",
     "type": "library",
     "keywords": [
         "php",
