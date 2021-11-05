@@ -157,25 +157,4 @@ class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
         }
     }
 
-    /**
-     * The senderId parameter is invalid.
-     */
-    public function testErrorInvalidSenderId()
-    {
-        try {
-            $message = 'Lorem Ipsum is simply dummy text';
-            $sender = 'unknown';
-
-            $client = new AltiriaClient($this->login, $this->password);
-            $client->setDebug($this->debug);
-            $textMessage = new AltiriaModelTextMessage($this->destination, $message);
-            $textMessage->setSenderId($sender);
-            $client-> sendSms($textMessage);
-            $this->fail('AltiriaGwException should have been thrown');
-        
-        } catch (\AltiriaSmsPhpClient\Exception\AltiriaGwException $exception) {
-            self::assertSame('INVALID_SENDER', $exception->getMessage());
-            self::assertSame('022', $exception->getStatus());
-        }
-    }
 }
