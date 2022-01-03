@@ -335,14 +335,6 @@ class AltiriaClient
             $errorMessage = 'TOO_MANY_MESSAGES';
         } elseif ($status == '020') { 
             $errorMessage = 'AUTHENTICATION_ERROR';
-        } elseif ($status == '022') { 
-            $errorMessage = 'INVALID_SENDER';
-        } elseif ($status == '030') { 
-            $errorMessage = 'URL_AND_MESSAGE_ARE_TOO_LONG';
-        } elseif ($status == '031') { 
-            $errorMessage = 'INVALID_URL_LENGTH';
-        } elseif ($status == '032') { 
-            $errorMessage = 'INVALID_URL_CHARS';
         } elseif ($status == '033') { 
             $errorMessage = 'INVALID_DESTINATION_SMS_PORT';
         } elseif ($status == '034') { 
