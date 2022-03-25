@@ -16,6 +16,8 @@ class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
     //configurable parameters
     public $login = 'user@mydomain.com';
     public $password = 'mypassword';
+    public $apiKey = 'XXXXXXXX';
+    public $apiSecret = 'YYYYYYYY';
     //set to null if there is no sender
     public $sender = 'mySender';
     public $debug = false;
@@ -46,6 +48,7 @@ class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
     /**
      * All params are sent.
      * Features:
+     * - apikey authentication
      * - sender
      * - delivery confirmation with identifier
      * - concatenated
@@ -58,7 +61,7 @@ class TestAltiriaSmsPhpClientSendSmsHttp extends TestCase
         $idAck = 'myAlias';
         $encoding = 'unicode';
         
-        $client = new AltiriaClient($this->login, $this->password);
+        $client = new AltiriaClient($this->apiKey, $this->apiSecret, true);
         $client->setDebug($this->debug);
         $textMessage = new AltiriaModelTextMessage($this->destination, $message, $this->sender);
         

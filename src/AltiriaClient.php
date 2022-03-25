@@ -21,6 +21,7 @@ class AltiriaClient
     protected $passwd;
     protected $debug = false;
     protected $textMessage;
+    protected $isApiKey;
 
     // connection timeout values are defined here
     protected $connectTimeout=3000;
@@ -41,16 +42,17 @@ class AltiriaClient
     /**
      * Constructor.
      * 
-     * @param string $login    user login
-     * @param string $password user password
-     * @param string $timeout  (optional parameter) response timeout
+     * @param string  $login    user login
+     * @param string  $password user password
+     * @param boolean $isApiKey set to true if apikey is used
+     * @param string  $timeout  (optional parameter) response timeout
      */
-    public function __construct($login, $password, $timeout = 10000)
+    public function __construct($login, $password, $isApiKey = false, $timeout = 10000)
     {
         $this->login = $login;
         $this->passwd = $password;
+        $this->isApiKey = $isApiKey;
         $this->setTimeout($timeout);
-        
     }
 
     /**
@@ -71,7 +73,17 @@ class AltiriaClient
     private function _getPasswd()
     {
         return $this->passwd;
-    } 
+    }
+
+    /**
+     * Returns true if apikey authentication method is selected.
+     * 
+     * @return $isApiKey parameter
+     */
+    private function _getApiKey()
+    {
+        return $this->isApiKey;
+    }
     
     /**
      * Show debugging logs.
@@ -136,6 +148,15 @@ class AltiriaClient
     {
         $response = null;
         try {
+            if ($this->login == null) {
+                error_log("ERROR: The login parameter is mandatory");
+                throw new JsonException('LOGIN_NOT_NULL');
+            }
+            if ($this->passwd == null) {
+                error_log("ERROR: The password parameter is mandatory");
+                throw new JsonException('PASSWORD_NOT_NULL');
+            }
+
             if ($textMessage->getDestination()!=null && !empty($textMessage->getDestination())) {
                 $destination = array($textMessage->getDestination());
             } else {
@@ -181,10 +202,12 @@ class AltiriaClient
             }
 
             try {
+                $loginKey = $this->_getApiKey() ? 'apikey' : 'login';
+                $passwordKey = $this->_getApiKey() ? 'apisecret' : 'passwd';
                 $client = new \GuzzleHttp\Client();
                 $response = $client->request(
                     'POST', $this->urlBase.'/sendSms', [
-                        'json' => ['credentials' => ['login' => $this->_getLogin(), 'passwd' => $this->_getPasswd()],
+                        'json' => ['credentials' => [ $loginKey => $this->_getLogin(), $passwordKey => $this->_getPasswd()],
                             'destination' => $destination,
                             'message' => $message,
                             'source' => $this->source],
@@ -247,12 +270,23 @@ class AltiriaClient
     {
         $credit = null;
         try {
+            if ($this->login == null) {
+                error_log("ERROR: The login parameter is mandatory");
+                throw new JsonException('LOGIN_NOT_NULL');
+            }
+            if ($this->passwd == null) {
+                error_log("ERROR: The password parameter is mandatory");
+                throw new JsonException('PASSWORD_NOT_NULL');
+            }
+
             $response = null;
             try {
+                $loginKey = $this->_getApiKey() ? 'apikey' : 'login';
+                $passwordKey = $this->_getApiKey() ? 'apisecret' : 'passwd';
                 $client = new \GuzzleHttp\Client();
                 $response = $client->request(
                     'POST', $this->urlBase.'/getCredit', [
-                        'json' => ['credentials' => ['login' => $this->_getLogin(), 'passwd' => $this->_getPasswd()],
+                        'json' => ['credentials' => [$loginKey => $this->_getLogin(), $passwordKey => $this->_getPasswd()],
                             'source' => $this->source ],
                         'connect_timeout' => $this->connectTimeout/1000,       
                         'timeout' => $this->timeout/1000,

@@ -10,6 +10,8 @@ class TestAltiriaSmsPhpClientGetCreditHttp extends TestCase
 {
     public $login = 'user@mydomain.com';
     public $password = 'mypassword';
+    public $apiKey = 'XXXXXXXX';
+    public $apiSecret = 'YYYYYYYY';
     public $debug = false;
 
     /**
@@ -18,6 +20,19 @@ class TestAltiriaSmsPhpClientGetCreditHttp extends TestCase
     public function testOk()
     {
         $client = new AltiriaClient($this->login, $this->password);
+        $client->setDebug($this->debug);
+        $credit = $client-> getCredit();
+        
+        //Check your credit here           
+        //self::assertSame('100.00', $credit);
+    }
+
+    /**
+     * Basic case using apikey.
+     */
+    public function testOkApikey()
+    {
+        $client = new AltiriaClient($this->apiKey, $this->apiSecret, true);
         $client->setDebug($this->debug);
         $credit = $client-> getCredit();
         
