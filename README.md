@@ -3,7 +3,7 @@
 
 # Altiria, cliente envío de SMS con PHP
 
- ![](https://img.shields.io/badge/version-1.0.0-blue.svg)
+ ![](https://img.shields.io/badge/version-1.0.2-blue.svg)
 
 Altiria SMS PHP es el cliente de envío de SMS que simplifica al máximo la integración del API SMS para PHP de Altiria.
 - **Envíos de SMS individuales**
@@ -91,7 +91,7 @@ use \AltiriaSmsPhpClient\AltiriaModelTextMessage;
 
 try {
     //Personaliza las credenciales de acceso
-    $client = new AltiriaClient('user@mydomain.com', 'mypassword', 5000);
+    $client = new AltiriaClient('user@mydomain.com', 'mypassword', false, 5000);
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba');
     $client-> sendSms($textMessage);
     echo '¡Mensaje enviado!';
@@ -111,7 +111,7 @@ try {
 
 #### Ejemplo básico con remitente
 
-Se trata de la opción más sencilla para realizar un envío de SMS añadiendo remitente.
+Se trata de la opción más sencilla para realizar un envío de SMS añadiendo remitente. En este caso, se ilustra cómo realizar una autentificación mediante APIKEY, donde "XXXXXXXXXX" es el parámetro **apiKey** y "YYYYYYYYYY" el parámetro **apiSecret**.
 
 ```php
 use \AltiriaSmsPhpClient\AltiriaClient;
@@ -119,7 +119,7 @@ use \AltiriaSmsPhpClient\AltiriaModelTextMessage;
 
 try {
     //Personaliza las credenciales de acceso
-    $client = new AltiriaClient('user@mydomain.com', 'mypassword');
+    $client = new AltiriaClient('XXXXXXXXXX', 'YYYYYYYYYY', true);
     $textMessage = new AltiriaModelTextMessage('346XXXXXXXX', 'Mensaje de prueba', 'miRemitente');
     $client-> sendSms($textMessage);
     echo '¡Mensaje enviado!';
