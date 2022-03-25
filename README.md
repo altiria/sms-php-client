@@ -44,7 +44,7 @@ En este caso, añadir el siguiente fragmento al fichero composer.json.
 
 <pre>
 "require": {
-	"altiria/sms-php-client": "1.0.0"
+	"altiria/sms-php-client": "1.0.2"
 }
 </pre>
 
