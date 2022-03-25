@@ -148,11 +148,11 @@ class AltiriaClient
     {
         $response = null;
         try {
-            if ($this->login == null) {
+            if ($this->_getLogin() == null) {
                 error_log("ERROR: The login parameter is mandatory");
                 throw new JsonException('LOGIN_NOT_NULL');
             }
-            if ($this->passwd == null) {
+            if ($this->_getPasswd() == null) {
                 error_log("ERROR: The password parameter is mandatory");
                 throw new JsonException('PASSWORD_NOT_NULL');
             }
@@ -270,11 +270,11 @@ class AltiriaClient
     {
         $credit = null;
         try {
-            if ($this->login == null) {
+            if ($this->_getLogin() == null) {
                 error_log("ERROR: The login parameter is mandatory");
                 throw new JsonException('LOGIN_NOT_NULL');
             }
-            if ($this->passwd == null) {
+            if ($this->_getPasswd() == null) {
                 error_log("ERROR: The password parameter is mandatory");
                 throw new JsonException('PASSWORD_NOT_NULL');
             }
